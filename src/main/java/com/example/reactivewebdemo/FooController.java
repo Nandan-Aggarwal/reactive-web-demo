@@ -15,7 +15,7 @@ public class FooController {
 
     @GetMapping(produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
     public Flux<Foo> emitRandomFoo() {
-        return Flux.interval(Duration.ofSeconds(1)).take(50)
+        return Flux.interval(Duration.ofSeconds(1)).take(10)
                    .map(index -> new Foo(UUID.randomUUID().toString(), "foo " + index));
     }
 }
